@@ -1,0 +1,150 @@
+@extends('backend.admin.dashboard')
+@section('content')
+<section class="content-header">
+
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">General Elements</li>
+    </ol>
+</section>
+<section class="content">
+        <div class="row">
+            <div class="col-md-6">
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-warning"></i> Lỗi !</h4>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thêm mới Article</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" method="post" action="{{ route('article.store') }}" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tên bài viết</label>
+                            <input  id="title" name="title" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">URL</label>
+                            <input  id="url" name="url" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Chọn ảnh</label>
+                            <input type="file" name="image" id="image" >
+                        </div>
+
+                        <div class="form-group">
+                            <label id="label-desc">Summary</label>
+                            <textarea id="summary"  name="summary" class="form-control" rows="2" placeholder="Enter ..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label id="label-desc">Mô tả</label>
+                            <textarea id="description"  name="description" class="form-control" rows="2" placeholder="Enter ..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Vị trí</label>
+                            <input min="0" type="number" class="form-control" id="position" name="position" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label id="label-desc">Meta Title</label>
+                            <textarea id="meta_title"   name="meta_title" class="form-control" rows="2" placeholder="Enter ..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label id="label-desc">Meta Description</label>
+                            <textarea id="meta_description"  name="meta_description" class="form-control" rows="2" placeholder="Enter ..."></textarea>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input value="1" type="checkbox" name="is_active" id="is_active">  Hiển thị
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary btnCreate">Thêm</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!--/.col (left) -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+@endsection
+
+
+
+@section('js')
+
+    <script type="text/javascript">
+
+        $( document ).ready(function() {
+
+            CKEDITOR.replace( 'description' );
+            CKEDITOR.replace( 'meta_title' );
+            CKEDITOR.replace( 'meta_description' );
+
+            $('.btnCreate').click(function () {
+                if ($('#title').val() === '') {
+                    $('#title').notify('Bạn nhập chưa nhập tiêu đề','error');
+                    document.getElementById('title').scrollIntoView();
+                    return false;
+                }
+                if ($("#image").val() === '') {
+                    $('#image').notify('Bạn nhập chưa chọn image','error');
+                    document.getElementById('image').scrollIntoView();
+                    return false;
+                }
+
+                if ($('#summary').val() === '') {
+                    $('#summary').notify('Bạn nhập chưa nhập summary','error');
+                    document.getElementById('summary').scrollIntoView();
+                    return false;
+                }
+                if ($('#description').val() === '') {
+                    $('#description').notify('Bạn nhập chưa nhập description','error');
+                    document.getElementById('description').scrollIntoView();
+                    return false;
+                }
+                if ($('#position').val() === '') {
+                    $('#position').notify('Bạn nhập chưa nhập position','error');
+                    document.getElementById('position').scrollIntoView();
+                    return false;
+                }
+                if ($('#meta_title').val() === '') {
+                    $('#meta_title').notify('Bạn nhập chưa nhập meta_title','error');
+                    document.getElementById('meta_title').scrollIntoView();
+                    return false;
+                }
+                if ($('#meta_description').val() === '') {
+                    $('#meta_description').notify('Bạn nhập chưa nhập meta_description','error');
+                    document.getElementById('meta_description').scrollIntoView();
+                    return false;
+                }
+
+            });
+        });
+    </script>
+@endsection
