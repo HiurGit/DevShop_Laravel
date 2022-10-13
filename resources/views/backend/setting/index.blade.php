@@ -49,10 +49,9 @@
                 <td>{{$item->email }}</td>
                 <td>{{ Str::limit($item->introduce, 100)}}</td>
 
-                <td>
-                    <a href="{{ route('setting.edit',['setting' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
-            </td>
+                <td >
+                    <a href="{{ route('setting.edit',['setting' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" >  </i></a>
+             </td>
               </tr>
               @endforeach
 

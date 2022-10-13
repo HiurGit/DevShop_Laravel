@@ -49,7 +49,7 @@
 
                 </td>
                 <td>
-                    <span class="badge bg-red">
+                    <span class="badge bg-blue">
                         @if ($item->is_active==1)
                         Hiện
                         @elseif ($item->is_active==0)
@@ -59,9 +59,9 @@
                         @endif
                     </span>
                 </td>
-                <td>
-                    <a href="{{ route('banner.edit',['banner' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
+                <td style="width: 108px;">
+                    <a href="{{ route('banner.edit',['banner' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" ></i></a>
+                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"></i></span>
             </td>
               </tr>
               @endforeach

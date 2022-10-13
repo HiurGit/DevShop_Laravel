@@ -8,10 +8,35 @@ use App\Models\Article;
 use App\Models\Banner;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
+
+
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $User =   DB::table('users')->where("is_active",1)->count();
+        $Product =DB::table('products')->where("is_active",1)->count();
+        $Article = DB::table('articles')->where("is_active",1)->count();
+        $Banner = DB::table('banners')->where("is_active",1)->count();
+        $Brands = DB::table('brands')->where("is_active",1)->count();
+        $Category = DB::table('categories')->where("is_active",1)->count();
+        $Contacts = DB::table('contacts') ->count();
+        $Vendor = DB::table('vendors')->where("is_active",1)->count();
+
+        View::share('User', $User);
+        View::share('Product', $Product);
+        View::share('Article', $Article);
+        View::share('Banner', $Banner);
+        View::share('Brands', $Brands);
+        View::share('Contacts', $Contacts);
+        View::share('Category', $Category);
+        View::share('Vendor', $Vendor);
+
+    }
     /**
      * Display a listing of the resource.
      *

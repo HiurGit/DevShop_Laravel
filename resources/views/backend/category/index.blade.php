@@ -53,7 +53,7 @@
                                     <td>{{ $item->parent_id > 0 ? @$item->parent->name : 'Null' }}</td>
                                     <td>{{ $item->position }}</td>
                                     <td>
-                                        <span class="badge bg-red">
+                                        <span class="badge bg-blue">
                                             @if ($item->is_active == 1)
                                                 Hiện
                                             @elseif ($item->is_active == 0)
@@ -63,18 +63,18 @@
                                             @endif
                                         </span>
                                     </td>
-                                    <td>
+                                    <td style="width: 108px;">
                                         <a href="{{ route('category.edit', ['category' => $item->id]) }}" type="button"
-                                            class="btn btn-info"><i class="fa fa-pencil-square-o"> Edit</i></a>
+                                            class="btn btn-info"><i class="fa fa-pencil-square-o">  </i></a>
 
                                         @if ($item->deleted_at == null)
                                             <span href="" data-id="{{ $item->id }}" type="button"
                                                 class="btn btn-danger deleteItem"><i class="fa fa-trash-o">
-                                                    Delete</i></span>
+                                                     </i></span>
                                         @else
                                             <span href="" data-id="{{ $item->id }}" type="button"
                                                 class="btn btn-warning restoreItem"><i class="fa fa-refresh">
-                                                    Restore</i></span>
+                                                     </i></span>
                                         @endif
 
                                     </td>

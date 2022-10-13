@@ -101,7 +101,7 @@
                             <li class="product-item col-lg-3 col-md-3 col-sm-4 col-xs-6">
                                 <div class="contain-product layout-default">
                                     <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
+                                        <a href="{{route('detail-Sanpham',['slug'=>$item->slug])}}" class="link-to-product">
 
                                             @if ( file_exists($item->image))
                                             <img src="{{asset($item->image)}}" alt="dd"width="270" height="270" class="product-thumnail">
@@ -111,8 +111,8 @@
                                         </a>
                                     </div>
                                     <div class="info">
-                                        <b class="categories">Fresh Fruit</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+
+                                        <h4 class="product-title"><a href="#" class="pr-name">{{ $item->name }}</a></h4>
                                         <div class="price">
                                             <ins><span class="price-amount"><span class="currencySymbol"></span>{{ number_format($item->sale, 0) }} đ</span></ins>
                                             <del><span class="price-amount"><span class="currencySymbol"></span>{{ number_format($item->price, 0) }}</span></del>
@@ -120,11 +120,9 @@
                                         </div>
 
                                         <div class="slide-down-box">
-                                            <p class="message">All products are carefully selected to ensure food safety.</p>
+
                                             <div class="buttons">
-                                                <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
-                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+
                                             </div>
                                         </div>
                                     </div>

@@ -33,19 +33,19 @@
                     <!--Contact info-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="contact-info-container sm-margin-top-27px xs-margin-bottom-60px xs-margin-top-60px">
-                            <h4 class="box-title">Our Contact</h4>
+                            <h4 class="box-title"></h4>
                             <img src="{{asset($setting->image ) }}"
                             alt="biolife logo" width="135" height="">
                             <ul class="addr-info">
                                 <li>
                                     <div class="if-item">
-                                        <b class="tie">Addess:</b>
+                                        <b class="tie">Địa chỉ :</b>
                                         <p class="dsc">{{ $setting->address }}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="if-item">
-                                        <b class="tie">Phone:</b>
+                                        <b class="tie">Điện thoại :</b>
                                         <p class="dsc">{{ $setting->phone }}</p>
                                     </div>
                                 </li>
@@ -55,22 +55,9 @@
                                         <p class="dsc">{{ $setting->email }}</p>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="if-item">
-                                        <b class="tie">Store Open:</b>
-                                        <p class="dsc">8am - 08pm, Mon - Sat</p>
-                                    </div>
-                                </li>
+
                             </ul>
-                            <div class="biolife-social inline">
-                                <ul class="socials">
-                                    <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
 
@@ -81,23 +68,23 @@
                             <form action="{{ route('contactPost') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <p class="form-row">
-                                    <input type="text" name="name" id="name" value="" placeholder="Your Name" class="txt-input">
+                                    <input type="text" name="name" id="name" value="" placeholder="Nhập tên" class="txt-input">
 
                                 </p>
                                 <p class="form-row">
-                                    <input type="email" name="email" id="email" value="" placeholder="Email Address" class="txt-input">
+                                    <input type="email" name="email" id="email" value="" placeholder="Địa chỉ email" class="txt-input">
 
                                 </p>
                                 <p class="form-row">
-                                    <input type="tel" name="phone" id="phone" value="" placeholder="Phone Number" class="txt-input">
+                                    <input type="tel" name="phone" id="phone" value="" placeholder="Số điện thoại" class="txt-input">
 
                                 </p>
                                 <p class="form-row">
-                                    <textarea name="content" id="content" cols="30" rows="9" placeholder="Content Message"></textarea>
+                                    <textarea name="content" id="content" cols="30" rows="9" placeholder="Nội dung"></textarea>
 
                                 </p>
                                 <p class="form-row">
-                                    <button class="btn btn-submit btnSend" type="submit">send message</button>
+                                    <button class="btn btn-submit btnSend" type="submit">Gửi liên hệ</button>
                                 </p>
                             </form>
                         </div>

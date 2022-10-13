@@ -2,13 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
+
 
 
 class VendorController extends Controller
 {
+    public function __construct()
+    {
+        $User =   DB::table('users')->where("is_active",1)->count();
+        $Product =DB::table('products')->where("is_active",1)->count();
+        $Article = DB::table('articles')->where("is_active",1)->count();
+        $Banner = DB::table('banners')->where("is_active",1)->count();
+        $Brands = DB::table('brands')->where("is_active",1)->count();
+        $Category = DB::table('categories')->where("is_active",1)->count();
+        $Contacts = DB::table('contacts') ->count();
+        $Vendor = DB::table('vendors')->where("is_active",1)->count();
+
+        View::share('User', $User);
+        View::share('Product', $Product);
+        View::share('Article', $Article);
+        View::share('Banner', $Banner);
+        View::share('Brands', $Brands);
+        View::share('Contacts', $Contacts);
+        View::share('Category', $Category);
+        View::share('Vendor', $Vendor);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -191,6 +216,18 @@ class VendorController extends Controller
 
         $vendor = vendor::findOrFail($id);
         // xóa ảnh cũ
+        $checkExitsProduct = Product::where('vendor_id', $id)->first();
+
+        if ($checkExitsProduct != null) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Xóa không thành công do, tồn tại một hoặc nhiều sản phẩm đang được thêm cho nhà cung cấp này này '
+            ]);
+        }
+
+
+
+
         @unlink(public_path($vendor->image));
 
         vendor::destroy($id);

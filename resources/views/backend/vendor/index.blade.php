@@ -44,8 +44,8 @@
                 <td>{{ $item->phone }}</td>
                 <td>{{ $item->address }}</td>
                 <td>{{ $item->position }}</td>
-                <td>
-                    <span class="badge bg-red">
+                <td >
+                    <span class="badge bg-blue">
                         @if ($item->is_active==1)
                         Hiện
                         @elseif ($item->is_active==0)
@@ -55,9 +55,9 @@
                         @endif
                     </span>
                 </td>
-                <td>
-                    <a href="{{ route('vendor.edit',['vendor' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
+                <td style="width: 108px;">
+                    <a href="{{ route('vendor.edit',['vendor' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" ></i></a>
+                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"></i></span>
             </td>
               </tr>
               @endforeach
@@ -83,16 +83,21 @@
     <script type="text/javascript">
         $( document ).ready(function() {
 
+
+
+
+
             $('.deleteItem').click(function () {
                 var id = $(this).attr('data-id');
+
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Bạn có muốn xóa?',
+                    text: "Dữ liệu nhà cung cấp không ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
@@ -102,9 +107,23 @@
                             success: function (res) {
                                 if(res.status) {
                                     $('.item-'+id).remove();
+
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        'Xóa thành công',
+                                        'success'
+                                    )
+
+                                } else {
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        res.msg,
+                                        'error'
+                                    )
                                 }
                             },
                             error: function (res) {
+
                             }
                         });
                     }

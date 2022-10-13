@@ -24,9 +24,9 @@
                 <th>Danh mục</th>
                 <th>Cung cấp</th>
 
-                <th>Mô tả</th>
+
                 <th>Vị trí</th>
-                <th>Is Hot</th>
+                <th>SP Hot</th>
                 <th>Trạng thái </th>
                 <th>Hành động</th>
               </tr>
@@ -60,23 +60,23 @@
                 <td>     {{ !empty($item->vendor_name) ? $item->vendor_name : '' }}</td>
 
 
-                <td>{!! html_entity_decode(Str::limit($item->description, 50) ) !!}</td>
+
 
                 <td>{{ $item->position }}</td>
 
                 <td>
                     <span class="badge bg-red">
                         @if ($item->is_hot==1)
-                        Hiện
+                        Hot
                         @elseif ($item->is_hot==0)
-                        Ẩn
+                        Không
                         @else
                         None
                         @endif
                     </span>
                 </td>
                 <td>
-                    <span class="badge bg-red">
+                    <span class="badge bg-blue">
                         @if ($item->is_active==1)
                         Hiện
                         @elseif ($item->is_active==0)
@@ -86,9 +86,9 @@
                         @endif
                     </span>
                 </td>
-                <td>
-                    <a href="{{ route('product.edit',['product' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
+                <td style="width: 108px;">
+                    <a href="{{ route('product.edit',['product' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" ></i></a>
+                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> </i></span>
             </td>
               </tr>
               @endforeach

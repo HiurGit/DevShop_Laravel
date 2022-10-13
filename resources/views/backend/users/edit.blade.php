@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mật khẩu mới</label>
-                            <input type="text" class="form-control" id="password" name="password" placeholder="" value="{{$model->password}}">
+                            <input type="text" class="form-control" id="password" name="password" placeholder="" value="">
                         </div>
 
                         <div class="form-group">

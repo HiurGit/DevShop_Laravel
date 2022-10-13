@@ -18,7 +18,7 @@
 
                 <th>Vai trò</th>
                 <th>Kích hoạt</th>
-                <th>Hành động</th>
+
               </tr>
               @foreach ($data as $key => $item )
 
@@ -57,7 +57,7 @@
 
                 </td>
                 <td>
-                    <span class="badge bg-red">
+                    <span class="badge bg-blue">
                         @if ($item->is_active==1)
                         Kích hoạt
                         @elseif ($item->is_active==0)
@@ -68,8 +68,8 @@
                     </span>
                 </td>
                 <td>
-                    <a href="{{ route('users.edit',['user' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
+                    <a href="{{ route('users.edit',['user' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" >  </i></a>
+
             </td>
               </tr>
               @endforeach

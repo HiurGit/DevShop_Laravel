@@ -15,18 +15,32 @@
   <section class="content">
     <!-- Small boxes (Stat box) -->
     <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+              <div class="inner">
+                <span>Số lượng:</span><h3> {{ $User }}</h3>
+
+                <p>Tài khoản</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{{ route('users.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
+            <span>Số lượng:</span>  <h3>{{ $Product }}</h3>
 
-            <p>New Orders</p>
+            <p>Sản phẩm</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('product.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -34,51 +48,107 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <span>Số lượng:</span>  <h3>{{ $Banner }}<sup style="font-size: 20px"></sup></h3>
 
-            <p>Bounce Rate</p>
+            <p>Banner</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('banner.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-          <div class="inner">
-            <h3>44</h3>
 
-            <p>User Registrations</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-person-add"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
       <!-- ./col -->
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
+            <span>Số lượng:</span>    <h3>{{ $Category }}</h3>
 
-            <p>Unique Visitors</p>
+            <p>Danh Mục</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('category.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+              <div class="inner">
+                <span>Số lượng:</span>  <h3>{{ $Brands }}</h3>
+
+                <p>Thương hiệu</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-clipboard"></i>
+              </div>
+              <a href="{{ route('brand.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <span>Số lượng:</span>   <h3>{{ $Contacts }}</h3>
+
+            <p>Khách gửi liên hệ</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-chatbox-working"></i>
+          </div>
+          <a href="{{ route('contact.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <span>Số lượng:</span>    <h3>{{ $Vendor }}<sup style="font-size: 20px"></sup></h3>
+
+            <p>Nhà cung cấp </p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-briefcase"></i>
+          </div>
+          <a href="{{ route('vendor.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <span>Số lượng:</span>    <h3>{{ $Article }}</h3>
+
+            <p>Tin tức</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-calendar"></i>
+          </div>
+          <a href="{{ route('article.index') }}" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
     </div>
     <!-- /.row -->
     <!-- Main row -->
-    <div class="row">
+    {{-- <div class="row">
       <!-- Left col -->
       <section class="col-lg-7 connectedSortable">
         <!-- Custom tabs (Charts with tabs)-->
@@ -510,7 +580,7 @@
 
       </section>
       <!-- right col -->
-    </div>
+    </div> --}}
     <!-- /.row (main row) -->
 
   </section>

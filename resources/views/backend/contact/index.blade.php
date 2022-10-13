@@ -19,7 +19,7 @@
                 <th>Nôi dung</th>
 
 
-                <th>Trạng thái </th>
+
 
                 <th>Hành động</th>
               </tr>
@@ -33,8 +33,8 @@
                 <td>{{ $item->content }}</td>
 
                 <td>
-                    <a href="{{ route('contact.edit',['contact' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" > Edit</i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> Delete</i></span>
+                    <a href="{{ route('contact.edit',['contact' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" ></i></a>
+
             </td>
               </tr>
               @endforeach

@@ -36,24 +36,10 @@
 
                         <div class="post-foot">
 
-                            <div class="post-tags">
-                                <span class="tag-title">Tags:</span>
-                                <ul class="tags">
-                                    <li><a href="#" class="tag-link">Juice Drink</a></li>
-                                    <li><a href="#" class="tag-link">Fast Food</a></li>
-                                    <li><a href="#" class="tag-link">Fresh Food</a></li>
-                                    <li><a href="#" class="tag-link">Hot</a></li>
-                                    <li><a href="#" class="tag-link">Backpack</a></li>
-                                    <li><a href="#" class="tag-link">Grooming</a></li>
-                                </ul>
-                            </div>
+
 
                             <div class="auth-info">
-                                <div class="ath">
-                                    <a href="#" class="avata"><img src="{{ asset('public/frontend')}}/assets/images/blogpost/author-02.png" width="29" height="28" alt="Christian Doe">Christian Doe</a>
-                                    <span class="count-item viewer"><i class="fa fa-eye" aria-hidden="true"></i>630</span>
-                                    <span class="count-item commented"><i class="fa fa-commenting" aria-hidden="true"></i>26</span>
-                                </div>
+
                                 <div class="socials-connection">
                                     <span class="title">Share:</span>
                                     <ul class="social-list">
@@ -166,28 +152,9 @@
                     <div class="sidebar-contain">
 
                         <!--Search Widget-->
-                        <div class="widget search-widget">
-                            <div class="wgt-content">
-                                <form action="#" name="frm-search" method="get" class="frm-search">
-                                    <input type="text" name="s" value="" placeholder="SEACH..." class="input-text">
-                                    <button type="submit" name="ok"><i class="biolife-icon icon-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
 
                         <!--Categories Widget-->
-                        <div class="widget biolife-filter">
-                            <h4 class="wgt-title">Categories</h4>
-                            <div class="wgt-content">
-                                <ul class="cat-list">
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Beauty (30)</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Fashion (50)</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Food (10)</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Life Style (60)</a></li>
-                                    <li class="cat-list-item"><a href="#" class="cat-link">Travel (10)</a></li>
-                                </ul>
-                            </div>
-                        </div>
+
 
                         <!--Posts Widget-->
                         {{--  <div class="widget posts-widget">
