@@ -265,10 +265,10 @@ class ProductController extends Controller
 
         $product = product::findOrFail($id);
         // xóa ảnh cũ
-        @unlink(public_path($product->image));
+
 
         product::destroy($id);
-
+ @unlink(public_path($product->image));
         return response()->json([
             'status' => true,
             'msg' => 'Xóa thành công'

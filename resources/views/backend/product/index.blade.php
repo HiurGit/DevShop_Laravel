@@ -6,6 +6,8 @@
         <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title">Danh Sách sản phẩm</h3>
+            <br>
+
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -88,8 +90,21 @@
                 </td>
                 <td style="width: 108px;">
                     <a href="{{ route('product.edit',['product' => $item->id])}}"  type="button" class="btn btn-info"><i class="fa fa-pencil-square-o" ></i></a>
-                    <span href=""  data-id="{{ $item->id }}" type="button" class="btn btn-danger deleteItem"><i class="fa fa-trash-o"> </i></span>
-            </td>
+
+
+
+                    @if ($item->deleted_at == null)
+                    <span href="" data-id="{{ $item->id }}" type="button"
+                        class="btn btn-danger deleteItem"><i class="fa fa-trash-o">
+                             </i></span>
+                  @else
+                    <span href="" data-id="{{ $item->id }}" type="button"
+                        class="btn btn-warning restoreItem"><i class="fa fa-refresh">
+                             </i></span>
+                @endif
+
+
+                </td>
               </tr>
               @endforeach
 
@@ -117,16 +132,19 @@
     <script type="text/javascript">
         $( document ).ready(function() {
 
-            $('.deleteItem').click(function () {
+
+
+        $('.deleteItem').click(function () {
                 var id = $(this).attr('data-id');
+
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Bạn có muốn xóa?',
+                    text: "Không thể khôi phục được dữ liệu",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
@@ -136,9 +154,23 @@
                             success: function (res) {
                                 if(res.status) {
                                     $('.item-'+id).remove();
+
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        'Xóa thành công',
+                                        'success'
+                                    )
+
+                                } else {
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        res.msg,
+                                        'error'
+                                    )
                                 }
                             },
                             error: function (res) {
+
                             }
                         });
                     }

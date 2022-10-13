@@ -7,16 +7,12 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\View;
-
-
 
 
 class CategoryController extends Controller
 {
 
-    public function __construct()
+ public function __construct()
     {
         $User =   DB::table('users')->where("is_active",1)->count();
         $Product =DB::table('products')->where("is_active",1)->count();
